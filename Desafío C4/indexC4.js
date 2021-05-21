@@ -14,18 +14,3 @@ function solicitarMail(){
 solicitarUsuario();
 solicitarPass();
 solicitarMail();
-
-/*var ingreseMonto = prompt("Ingrese monto:");
-var ingresePago = prompt("Ingrese medio de pago:");
-var MontoIva = ingreseMonto + (ingreseMonto *0,21);
-let recargoTC = (*0,10);
-var ingreseCom = prompt("Ingrese comisión del vendedor:");
-
-
-if (ingresePago == "Efectivo"){
-        alert("Total" + MontoIva);
-}else if {
-        (ingresePago == "Tarjeta")
-        let MontoIva = ingreseMonto + (ingreseMonto *0,21);
-        alert(MontoIva);
-}*/
