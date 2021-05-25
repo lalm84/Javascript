@@ -1,16 +1,8 @@
-alert("Bienvenido. Por favor ingrese los datos solicitados");
-function solicitarUsuario(){
-        let usuarioIngresado = prompt("Ingrese su usuario");
-        alert("El usuario ingresado es " + usuarioIngresado);
-    }
-function solicitarPass(){
-        let passIngresada = prompt("Ingrese su contraseña");
-        alert("La contraseña ingresada es " + passIngresada);
-    }
-function solicitarMail(){
-        let mailIngresado = prompt("Ingrese su email");
-        alert("El email ingresado es " + mailIngresado);
-    }
-solicitarUsuario();
-solicitarPass();
-solicitarMail();
+var valornota1 = prompt("Ingrese 1er valor");
+var valornota2 = prompt("Ingrese 2do valor");
+var valornota3 = prompt("Ingrese 3er valor");
+
+function promedio (nota1, nota2, nota3) {
+        return (parseFloat(nota1) + parseFloat(nota2) + parseFloat(nota3)) /3;        
+}
+alert("El promedio es:"+promedio(valornota1, valornota2, valornota3))
