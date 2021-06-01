@@ -49,3 +49,13 @@ function promedio (nota1, nota2, nota3) {
 alert("El promedio es:"+promedio(valornota1, valornota2, valornota3))
 
 /////////////////////////////////////////////////////////////////////
+
+function reg1(usuario, hora) { 
+	this.usuario = usuario;
+	this.hora = hora;
+}
+
+function ingreso() {
+        var login = new reg1("Juan Carlos", new Date());
+        console.log(login);
+}

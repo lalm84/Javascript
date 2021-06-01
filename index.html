@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 </head>
 <body>    
-    <h1>Registro de login</h1>
-    <form action="">
-    <input type="button" value="Registrar" onclick="ingreso();">
-    </form>
-    <script src="./index.js"></script>
+    <div id="calcStock">
+        <h1>Sarasa</h1>        
+        <input type="text" v-model="nuevaFruta">
+        <button v-on:click=agregarFrutaConIF()>Clic para agregar auto</button>
+        <ul>            
+            <li v-for="fruta in frutas">
+                {{ fruta.nombre }} - <input type="number" v-model.number="fruta.cantidad">
+                <button @click=fruta.cantidad++>+</button>
+                <button @click=fruta.cantidad-->-</button>
+            </li>
+        </ul>
+        <h4>Total: {{sumFru}}</h4>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
 </body>

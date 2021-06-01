@@ -1,9 +1,17 @@
-function reg1(usuario, hora) { 
-	this.usuario = usuario;
-	this.hora = hora;
-}
+var ejemplo_vModel = new Vue({
+    el: '#calcStock',
+    data: {      
+      frutas: [        
+        { nombre: "Naranja", cantidad: 10 },
+        { nombre: "Banana", cantidad: 12 },
+        { nombre: "Pera", cantidad: 5 }
+      ],      
+    },    
+  })
 
-function ingreso() {
-        var login = new reg1("Juan Carlos", new Date());
-        console.log(login);
-}
+const Autos = ["Mustang", "ChevySS", "Polara", "Charger", "ShelbyCobra"];
+
+Autos.push('Camaro');
+console.log(Autos);
+
+alert(Autos);
