@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>    
-    <div id="calcStock">
-        <h1>Sarasa</h1>        
-        <input type="text" v-model="nuevaFruta">
-        <button v-on:click=agregarFrutaConIF()>Clic para agregar auto</button>
-        <ul>            
-            <li v-for="fruta in frutas">
-                {{ fruta.nombre }} - <input type="number" v-model.number="fruta.cantidad">
-                <button @click=fruta.cantidad++>+</button>
-                <button @click=fruta.cantidad-->-</button>
-            </li>
-        </ul>
-        <h4>Total: {{sumFru}}</h4>
+
+<body>        
+    <div id='values'></div>
+    <div>
+        <h1>Listado de autos</h1>
+        <input type="text" id="idNumber" name="tipo_de_dato">
+        <button type="submit" id="btnAdd" onclick="listado(list)">Agregar objeto</button>
+        <div id = "container"><ul id="list"></ul></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="index.js"></script>
 </body>
+
+</html>
