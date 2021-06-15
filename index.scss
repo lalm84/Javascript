@@ -1,0 +1,42 @@
+#header {
+    width: 100vw;
+    height: auto;       
+    position: sticky;
+    background: black;
+    top: 0;
+    p {
+        position: relative;
+        left: 50%;          
+    } 
+}
+
+#titulo {    
+    display: flex;    
+    color: white;    
+}
+
+body {
+    background: lightblue;    
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 60px;    
+}
+
+#list2 {
+    display: flex;
+    position:fixed;
+    left: 40%;
+    top: 20%;
+    border: black;
+    background: white;
+    border-style:groove;
+    border-radius: 15px;
+    width: 200px;
+    height: 300px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;
+        margin: 0;
+    }
