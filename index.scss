@@ -1,38 +1,75 @@
-#header {
-    width: 100vw;
-    height: auto;       
-    position: sticky;
-    background: black;
-    top: 0;
-    p {
-        position: relative;
-        left: 50%;          
-    } 
-}
-
-#titulo {    
-    display: flex;    
-    color: white;    
-}
 
 body {
     background: lightblue;    
     position: relative;
     min-height: 100vh;
-    padding-bottom: 60px;    
+    padding-bottom: 60px; 
+    #header {
+        width: 100vw;
+        height: 120px;       
+        position: sticky;
+        background: black;
+        top: 0;
+        #logo {
+            display:flex;
+            position:absolute;
+            margin: 1% 0 0 1%;
+        }   
+        #titulo {
+            font-size: 3rem;
+            position: absolute;
+            left: 25%;
+            top: 15%;
+            display: flex;    
+            color: white;    
+        } 
+        #viewlist {        
+            position:absolute;
+            right: 30%;
+            top: 30%;
+        }
+    }
+    aside {
+        position:fixed;
+        width: 200px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        border: 1px solid #111;
+        ul {
+            position: absolute;
+            height: 200px;
+            top: 50%;
+            margin: -100px 0;
+        }
+    }
 }
-
-#list2 {
+#main {
+    margin: 2% 0 0 2%;
+}
+#titul0 {
+    font-size: 3rem;
+    margin-left: 3%;
+    top: 15%;
+    display: flex;    
+    color: black;    
+}
+#input {
     display: flex;
-    position:fixed;
-    left: 40%;
-    top: 20%;
+    margin: 0 0 1.5% 3%;
+}
+#list2 {    
+    left: 2%;
+    top: 23%;
     border: black;
     background: white;
     border-style:groove;
     border-radius: 15px;
-    width: 200px;
+    width: 400px;
     height: 300px;
+}
+#container2 {
+    margin-top: 1.5%;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -40,3 +77,4 @@ input[type=number]::-webkit-inner-spin-button,
         -webkit-appearance: none;
         margin: 0;
     }
+
