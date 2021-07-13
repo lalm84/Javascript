@@ -1,80 +1,103 @@
-
 body {
-    background: lightblue;    
+  background: lightblue;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 60px;
+  #newElement, #filter, #exitList {
+  border: 1px;
+  border-color: black;
+  border-style: outset;
+  }
+  #header {
+  width: 99vw;
+  height: 130px;
+  position: -webkit-sticky;
+  position: sticky;
+  background: black;
+  top: 0;
+  overflow:hidden;
+    #logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    margin: 1% 1% 1% 1%;
+    }
+    #tit1 {    
+    position: relative;    
+    display: -webkit-box;
+    display: -ms-flexbox;    
+    color: white;
+    left: 25%;
+    top: 30%;
+    }    
+    #tit2 {
     position: relative;
-    min-height: 100vh;
-    padding-bottom: 60px; 
-    #header {
-        width: 100vw;
-        height: 120px;       
-        position: sticky;
-        background: black;
-        top: 0;
-        #logo {
-            display:flex;
-            position:absolute;
-            margin: 1% 0 0 1%;
-        }   
-        #titulo {
-            font-size: 3rem;
-            position: absolute;
-            left: 25%;
-            top: 15%;
-            display: flex;    
-            color: white;    
-        } 
-        #viewlist {        
-            position:absolute;
-            right: 30%;
-            top: 30%;
-        }
+    color: white;    
+    right: 15%;
+    top: 30%;
+    text-align: right;
+    }    
+  }
+  aside {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  border: 1px solid #111;
+    ul {
+    position: absolute;
+    height: 200px;
+    top: 50%;
+    margin: -100px 0;
     }
-    aside {
-        position:fixed;
-        width: 200px;
-        height: 100%;
-        top: 0;
-        right: 0;
-        border: 1px solid #111;
-        ul {
-            position: absolute;
-            height: 200px;
-            top: 50%;
-            margin: -100px 0;
-        }
-    }
+  }
+  #filter {
+    width: 260px;
+  }
+  #newElement{
+    width: 260px;
+  }  
 }
-#main {
+  
+  /* #main {
     margin: 2% 0 0 2%;
-}
-#titul0 {
+  } */
+  
+  /* #titul0 {
     font-size: 3rem;
     margin-left: 3%;
     top: 15%;
-    display: flex;    
-    color: black;    
-}
-#input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: black;
+  }
+  #input {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 0 0 1.5% 3%;
-}
-#list2 {    
+  }   */
+  /* #list2 {
     left: 2%;
     top: 23%;
     border: black;
     background: white;
-    border-style:groove;
+    border-style: groove;
     border-radius: 15px;
     width: 400px;
     height: 300px;
-}
-#container2 {
+  }  
+  #container2 {  
+    position: absolute;
     margin-top: 1.5%;
-}
-
-input[type=number]::-webkit-inner-spin-button, 
-    input[type=number]::-webkit-outer-spin-button { 
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
+    top: 20%;
+    left: 30%;
+  }  
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  } */

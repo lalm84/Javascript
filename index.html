@@ -7,9 +7,9 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!----TITLE / FAVICON / FONT--->
-  <title>RNGit. La mejor institución tecnológica nacional.</title>
-  <link rel="icon" href="Logo.jpg" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>E-TOOLBOX - Your tool gatherer</title>
+  <link rel="icon" href="toolboxicon.png" type="image/png">
+  <link href="#" rel="stylesheet">
   <!----BOOTSTRAP CSS--->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -18,36 +18,62 @@
 </head>
 
 <body>
+  <!-- HEADER -->
   <header id="header">
-    <div>
-      <img src="LogoS.jpg" alt="#">
-      <p id="titulo">Buy your troop</p>
+    <!-- ICON -->
+    <div id="logo">
+      <img src="toolboxicon.png" alt="#" height="100px" width="100px">
     </div>
+    <!-- TITLE -->
+    <div class="title" id="tit1"><h1>Welcome to your TOOLBOX</h1></div>
+    <div class="title" id="tit2"><p>Dudas? Preguntas? Revisa nuestro FAQ</p></div>
   </header>
-  <div>
-    <h1>Listado de autos</h1>
-    <input type="text" id="idNumber" name="tipo_de_dato">
-    <button type="submit" id="btnAdd" onclick="listado(list)">Agregar objeto</button>
-    <div id="container">
-      <ul id="list"></ul>
+  <!-- INPUT NEW ELEMENT -->
+  <div id="newElement">
+    <input type="text">
+    <button>Click</button>
+  </div>
+  <!-- FILTER -->
+  <div id="filter">
+    <input type="text">
+    <button>Click</button>
+  </div>
+  <!-- TABLA -->
+  <div class="container">
+    <div class="row">
+      <!-- Elementos generados a partir del JSON -->
+      <main id="items" class="col-sm-7 row"></main>
+      <!-- Carrito -->
+      <div class="col-sm-3">
+        <h2>Carrito</h2>
+        <!-- Items del carrito -->
+        <ul id="carrito" class="list-group"></ul>
+        <hr>
+        <!-- Precio total -->
+        <p class="text-right">Total: <span id="total"></span> AR$</p>
+        <!-- Botones -->
+        <input type="button" class="btn btn-danger" value="Imprimir" onClick="printDiv('carrito')">
+        <button id="boton-postear" class="btn btn-danger">Enviar</button>
+        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+      </div>
     </div>
   </div>
-  <div id="container2">
-    <ul id="list2"></ul>
-  </div>
-  </input>
-  <div id="main">
+  <!-- BOTONERA DE TESTEO 1 -->
+  <!-- <div id="main">
     <input type="button" id="btAdd" value="Añadir Elemento" class="bt" />
     <input type="button" id="btRemove" value="Eliminar Elemento" class="bt" />
     <input type="button" id="btRemoveAll" value="Eliminar Todo" class="bt" />
+  </div> -->
+  <!-- SCRIPTS -->
+  <div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js "
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo "
+      crossorigin="anonymous "></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <!-- <script src="adding.js"></script> -->
   </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js "
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo "
-    crossorigin="anonymous "></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="index.js"></script>
-  <script src="adding.js"></script>
 </body>
 
 </html>
