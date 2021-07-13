@@ -1,4 +1,4 @@
-/* LISTADO INICIAL + BOT. INCREASE/DECREASE */
+/* LISTADO INICIAL */
 const dataBase = [
     {
         id: 1,
@@ -114,8 +114,8 @@ function renderCart() {
         node.classList.add('list-group-item', 'text-right', 'mx-2');
         node.textContent = `${numeroUnidadesItem} x ${targetItem[0].nombre} - ${targetItem[0].precio} AR$`;
         const selButton = document.createElement('button');
-        selButton.classList.add('btn', 'btn-danger', 'mx-5');
-        selButton.textContent = 'X';
+        selButton.classList.add('btn', 'btn-danger', 'mx-4');
+        selButton.textContent = 'Quitar';
         selButton.style.marginLeft = '1rem';
         selButton.dataset.item = item;
         selButton.addEventListener('click', deleteItem);

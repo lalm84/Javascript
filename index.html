@@ -21,59 +21,80 @@
   <!-- HEADER -->
   <header id="header">
     <!-- ICON -->
-    <div id="logo">
-      <img src="toolboxicon.png" alt="#" height="100px" width="100px">
-    </div>
+    <button id="logo"><img src="toolboxicon.png" alt="#" height="100px" width="100px"></button>
     <!-- TITLE -->
-    <div class="title" id="tit1"><h1>Welcome to your TOOLBOX</h1></div>
-    <div class="title" id="tit2"><p>Dudas? Preguntas? Revisa nuestro FAQ</p></div>
+    <div class="title" id="tit1">
+      <h1>Welcome to your TOOLBOX</h1>
+    </div>
+    <div class="title" id="tit2">
+      <p>Dudas? Preguntas? Revisa nuestro FAQ</p>
+    </div>
   </header>
-  <!-- INPUT NEW ELEMENT -->
-  <div id="newElement">
-    <input type="text">
-    <button>Click</button>
-  </div>
-  <!-- FILTER -->
-  <div id="filter">
-    <input type="text">
-    <button>Click</button>
-  </div>
   <!-- TABLA -->
   <div class="container">
     <div class="row">
-      <!-- Elementos generados a partir del JSON -->
-      <main id="items" class="col-sm-7 row"></main>
-      <!-- Carrito -->
-      <div class="col-sm-3">
-        <h2>Carrito</h2>
-        <!-- Items del carrito -->
-        <ul id="carrito" class="list-group"></ul>
-        <hr>
-        <!-- Precio total -->
-        <p class="text-right">Total: <span id="total"></span> AR$</p>
-        <!-- Botones -->
-        <input type="button" class="btn btn-danger" value="Imprimir" onClick="printDiv('carrito')">
-        <button id="boton-postear" class="btn btn-danger">Enviar</button>
-        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+      <!-- INPUTS -->
+      <div id="inputs" class="col-sm-2">
+        <!-- INPUT NEW ELEMENT -->
+        <div id="newElement">
+          <p>No encuentra la herramienta que necesita?</p>
+          <p>Agréguela manualmente:</p>
+          <input id="elemInput" type="text">
+          <button id="elemButton" class="btn-success">Agregar</button>
+        </div>
+        <br>
+        <!-- FILTER -->
+        <div id="filter">
+          <p>Filtre por categorías deseadas:</p>          
+          <div class="filTools">
+            <div class="checkbox">
+              <label><input type="checkbox" rel="Herramientas" onchange="change();"> Herramientas</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" rel="Accesorios" onchange="change();"> Accesorios</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" rel="Consumibles" onchange="change();"> Consumibles</label>
+            </div>
+          </div>
+        </div>        
+      </div>
+        <!-- Elementos generados a partir del JSON -->
+        <main id="items" class="col-sm-6 row">
+          <Title>Objetos</Title>
+        </main>
+        <!-- Carrito -->
+        <div id="cartSide" class="col-sm-3">
+          <h2>Carrito</h2>
+          <!-- Botones -->
+          <input type="button" class="btn btn-primary" value="Imprimir" onClick="printDiv('carrito')">
+          <button id="boton-postear" class="btn btn-success">Enviar</button>
+          <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+          <hr>
+          <!-- Items del carrito -->
+          <ul id="carrito" class="list-group"></ul>
+          <hr>
+          <!-- Precio total -->
+          <p class="text-right">Total: <span id="total"></span> AR$</p>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- BOTONERA DE TESTEO 1 -->
-  <!-- <div id="main">
+    <!-- BOTONERA DE TESTEO 1 -->
+    <!-- <div id="main">
     <input type="button" id="btAdd" value="Añadir Elemento" class="bt" />
     <input type="button" id="btRemove" value="Eliminar Elemento" class="bt" />
     <input type="button" id="btRemoveAll" value="Eliminar Todo" class="bt" />
   </div> -->
-  <!-- SCRIPTS -->
-  <div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js "
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo "
-      crossorigin="anonymous "></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
-    <!-- <script src="adding.js"></script> -->
-  </div>
+    <!-- SCRIPTS -->
+    <div>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js "
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo "
+        crossorigin="anonymous "></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="index.js"></script>
+      <!-- <script src="adding.js"></script> -->
+    </div>
 </body>
 
 </html>
