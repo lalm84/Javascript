@@ -21,9 +21,9 @@ body {
     position: absolute;
     background: black;
     border-radius: 10px;
-    border-style:outset;
-    border-color: black;
+    left: 26%;
     margin: 12px 0 0 15px;
+    padding: 3px;
     background-image: "toolboxicon.png";
     }
     #logo:hover {
@@ -36,15 +36,18 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;    
     color: white;
-    left: 25%;
+    left: 35%;
     top: 30%;
     }    
     #tit2 {
     position: relative;
     color: white;    
-    right: 15%;
+    right: 27%;
     top: 30%;
     text-align: right;
+    p:hover {
+      cursor: pointer;
+    }
     }
     .hoverCom {
       .tooltiptext {

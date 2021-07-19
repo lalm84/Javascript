@@ -3,97 +3,97 @@ const dataBase = [
     {
         id: 1,
         nombre: 'Kit destornillad.',
-        precio: 1000,
+        precio: 1610,
         imagen: 'img/destornilladores.jpg'
     },
     {
         id: 2,
         nombre: 'Tester de red',
-        precio: 10000,
+        precio: 599,
         imagen: 'img/testerred.jpg'
     },
     {
         id: 3,
         nombre: 'Alicate',
-        precio: 10000,
+        precio: 649,
         imagen: 'img/alicate.jpg'
     },
     {
         id: 4,
         nombre: 'Pinza de punta',
-        precio: 10000,
+        precio: 499,
         imagen: 'img/pinzapunta.jpg'
     },
     {
         id: 5,
         nombre: 'Crimpeadora',
-        precio: 10000,
+        precio: 799,
         imagen: 'img/crimpeadora.jpg'
     },
     {
         id: 6,
         nombre: 'Pelacables',
-        precio: 10000,
+        precio: 2248,
         imagen: 'img/pelacables.jpg'
     },
     {
         id: 7,
-        nombre: 'Bolsa RJ45',
-        precio: 10000,
+        nombre: 'Ficha RJ45 (x100)',
+        precio: 450,
         imagen: 'img/rj45.jpg'
     },
     {
         id: 8,
-        nombre: 'Precintos',
-        precio: 10000,
+        nombre: 'Precintos (x100)',
+        precio: 155,
         imagen: 'img/precintos.jpg'
     },
     {
         id: 9,
         nombre: 'Cable cat5 (x10mt)',
-        precio: 10000,
+        precio: 275,
         imagen: 'img/cablered.jpg'
     },
     {
         id: 10,
         nombre: 'Pinza',
-        precio: 10000,
+        precio: 650,
         imagen: 'img/pinza.jpg'
     },
     {
         id: 11,
         nombre: 'Cutter',
-        precio: 10000,
+        precio: 899,
         imagen: 'img/cutter2.jpg'
     },
     {
         id: 12,
         nombre: 'Ponchadora',
-        precio: 10000,
+        precio: 2500,
         imagen: 'img/ponchadora.jpg'
     },
     {
         id: 13,
         nombre: 'Tester',
-        precio: 10000,
+        precio: 1899,
         imagen: 'img/tester.jpg'
     },
     {
         id: 14,
         nombre: 'Buscapolo',
-        precio: 10000,
+        precio: 175,
         imagen: 'img/buscapolo.jpg'
     },
     {
         id: 15,
-        nombre: 'Grampas',
-        precio: 10000,
+        nombre: 'Grampas (x100)',
+        precio: 280,
         imagen: 'img/grampas.jpg'
     },
     {
         id: 16,
         nombre: '"Viru viru"',
-        precio: 10000,
+        precio: 1959,
         imagen: 'img/viru.jpg'
     },
 ];
