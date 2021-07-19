@@ -46,9 +46,32 @@ body #header #tit1 {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
-  color: white;
+  color: black;
   left: 35%;
   top: 30%;
+}
+
+body #header .glow {
+  -webkit-animation: glow-title 2s ease-in-out infinite alternate;
+  animation: glow-title 2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow-title {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+  }
+  to {
+    text-shadow: 0 0 15px #fff;
+  }
+}
+
+@keyframes glow-title {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+  }
+  to {
+    text-shadow: 0 0 15px #fff;
+  }
 }
 
 body #header #tit2 {
@@ -160,45 +183,4 @@ body .container #cartSide #carrito {
   max-height: 350px;
   max-width: 375px;
 }
-
-/*  
-  #main {
-    margin: 2% 0 0 2%;
-  }
-  #titul0 {
-    font-size: 3rem;
-    margin-left: 3%;
-    top: 15%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    color: black;
-  }
-  #input {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 0 0 1.5% 3%;
-  } 
-  #list2 {
-    left: 2%;
-    top: 23%;
-    border: black;
-    background: white;
-    border-style: groove;
-    border-radius: 15px;
-    width: 400px;
-    height: 300px;
-  }  
-  #container2 {  
-    position: absolute;
-    margin-top: 1.5%;
-    top: 20%;
-    left: 30%;
-  }  
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  } */
 /*# sourceMappingURL=index.css.map */
