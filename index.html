@@ -7,24 +7,28 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!----TITLE / FAVICON / FONT--->
-  <title>E-TOOLBOX - Your tool gatherer</title>
+  <title>Estás usando E-TOOLBOX</title>
   <link rel="icon" href="toolboxicon.png" type="image/png">
   <link href="#" rel="stylesheet">
   <!----BOOTSTRAP CSS--->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!------CSS------>
   <link rel="stylesheet" href="index.css" />
+  <!-- FONTAWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 
 <body>
   <!-- HEADER -->
   <header id="header">
     <!-- ICON -->
-    <button id="logo"><img src="toolboxicon.png" alt="#" height="100px" width="100px"></button>
+    <button type="button" id="logo" data-bs-toggle="modal" data-bs-target="#moddy" title="Qué es E-TOOLBOX?"><img src="img/toolboxicon.png" alt="#"
+        height="100px" width="100px"></button>        
     <!-- TITLE -->
     <div class="title" id="tit1">
-      <h1>Welcome to your TOOLBOX</h1>
+      <h1><b>Bienvenido a E-TOOLBOX</b></h1>
     </div>
     <div class="title" id="tit2">
       <p>Dudas? Preguntas? Revisa nuestro FAQ</p>
@@ -34,67 +38,84 @@
   <div class="container">
     <div class="row">
       <!-- INPUTS -->
-      <div id="inputs" class="col-sm-2">
+      <div id="inputs" class="col-sm-3">
         <!-- INPUT NEW ELEMENT -->
         <div id="newElement">
           <p>No encuentra la herramienta que necesita?</p>
           <p>Agréguela manualmente:</p>
+
           <input id="elemInput" type="text">
           <button id="elemButton" class="btn-success">Agregar</button>
         </div>
         <br>
         <!-- FILTER -->
         <div id="filter">
-          <p>Filtre por categorías deseadas:</p>          
+          <p>Busque el ítem deseado</p>
+          <input type="text" id="myInput" onkeyup="myFunction()">
+          <p>... o filtre por categorías!</p>
           <div class="filTools">
             <div class="checkbox">
-              <label><input type="checkbox" rel="Herramientas" onchange="change();"> Herramientas</label>
+              <label><input type="checkbox" rel="herramientas" onchange="change();"> Herramientas</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" rel="Accesorios" onchange="change();"> Accesorios</label>
+              <label><input type="checkbox" rel="accesorios" onchange="change();"> Accesorios</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" rel="Consumibles" onchange="change();"> Consumibles</label>
+              <label><input type="checkbox" rel="consumibles" onchange="change();"> Consumibles</label>
             </div>
           </div>
-        </div>        
-      </div>
-        <!-- Elementos generados a partir del JSON -->
-        <main id="items" class="col-sm-6 row">
-          <Title>Objetos</Title>
-        </main>
-        <!-- Carrito -->
-        <div id="cartSide" class="col-sm-3">
-          <h2>Carrito</h2>
-          <!-- Botones -->
-          <input type="button" class="btn btn-primary" value="Imprimir" onClick="printDiv('carrito')">
-          <button id="boton-postear" class="btn btn-success">Enviar</button>
-          <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-          <hr>
-          <!-- Items del carrito -->
-          <ul id="carrito" class="list-group"></ul>
-          <hr>
-          <!-- Precio total -->
-          <p class="text-right">Total: <span id="total"></span> AR$</p>
         </div>
       </div>
+      <!-- Elementos generados a partir del JSON -->
+      <main id="items" class="col-sm-6 row">
+        <Title>Objetos</Title>
+      </main>
+      <!-- Carrito -->
+      <div id="cartSide" class="col-sm-3">
+        <h2>Carrito</h2>
+        <!-- Botones -->
+        <button class="btn btn-primary fas fa-print" onClick="printDiv('carrito')"></button>
+        <button id="boton-postear" class="btn btn-success fas fa-file-export"></button>
+        <button id="boton-vaciar" class="btn btn-danger fas fa-trash-alt"></button>        
+        <button id="sendEmail" class="btn btn-success fas fa-envelope-open-text" onclick="window.location.href='mailto:your@email.address?subject=Comments about the color blue';" value="Contact us"></button>
+        <hr>
+        <!-- Items del carrito -->
+        <ul id="carrito" class="list-group"></ul>
+        <hr>
+        <!-- Precio total -->
+        <p class="text-right">Total: <span id="total"></span> AR$</p>
+      </div>
     </div>
-    <!-- BOTONERA DE TESTEO 1 -->
-    <!-- <div id="main">
-    <input type="button" id="btAdd" value="Añadir Elemento" class="bt" />
-    <input type="button" id="btRemove" value="Eliminar Elemento" class="bt" />
-    <input type="button" id="btRemoveAll" value="Eliminar Todo" class="bt" />
-  </div> -->
-    <!-- SCRIPTS -->
-    <div>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js "
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo "
-        crossorigin="anonymous "></script>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-      <script src="index.js"></script>
-      <!-- <script src="adding.js"></script> -->
-    </div>
+  </div>  
+  <!-- SCRIPTS -->
+  <div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+  </div>
 </body>
 
+<!-- MODAL DESCRIPTION -->
+<div class="modal fade" id="moddy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Qué es E-TOOLBOX?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum exercitationem molestias dolor harum facilis placeat cumque reiciendis velit quas sequi, quidem ea dicta voluptates aperiam esse quo fugiat porro aut nihil illo error non. Nam aspernatur repellendus, dolorum sint exercitationem explicabo adipisci ipsa magni ab molestias reiciendis natus, eius modi. Similique aut pariatur modi tempore nobis repellat voluptate temporibus totam accusantium maxime eveniet illo, sit explicabo quae natus, facere non. Eum, doloribus. Commodi, magni quam quia ea amet voluptate vitae corrupti veritatis nam. Cupiditate consequatur quod ab eos voluptas repudiandae! Quisquam illum possimus harum perspiciatis sunt cumque doloremque obcaecati quod laboriosam porro non explicabo, quasi suscipit facilis debitis! Quasi pariatur ut eum corporis quam exercitationem! Inventore iste rerum officia tempore ut mollitia quibusdam fuga, illo natus doloribus deleniti saepe omnis dignissimos excepturi nesciunt molestiae aut maxime minima exercitationem adipisci explicabo nulla? Unde doloremque amet at labore facilis, reiciendis nesciunt adipisci expedita iure error qui beatae sapiente quidem nisi, voluptates libero aut odit alias aliquam quos animi, hic rerum cum sint! Aut dolorem quas est natus mollitia consequuntur accusantium necessitatibus quos saepe quia repellendus odio maxime sit id, minima a molestiae laudantium animi non ex, quam libero praesentium adipisci. Exercitationem, aut. Dicta tenetur sed soluta sunt rem inventore illum odio placeat corporis asperiores, cum ut nisi. Dolores hic nisi aspernatur reprehenderit pariatur cum, temporibus impedit iure esse atque libero non quisquam quas officia, laboriosam corporis deserunt veniam eius omnis recusandae, dicta ratione harum. Deleniti nobis ipsum ad porro, eos officiis minima veritatis accusantium totam voluptates saepe eligendi quam vero non consequatur quae quis nihil quod amet et voluptatibus recusandae. Ratione corporis doloremque dolores voluptatum enim iusto soluta! Ipsa cum at hic excepturi iste doloribus facilis vel, odit, consequatur molestias culpa voluptates. Soluta mollitia ducimus, voluptate, iste aliquid, a saepe aut nobis sunt ut sapiente magni aliquam! Iusto ad nesciunt beatae reprehenderit in expedita esse nisi quis ducimus nostrum repudiandae, quisquam cumque tenetur officiis natus ea earum mollitia iste soluta provident facilis labore atque nobis maxime? Repellendus quisquam consequatur illum blanditiis, alias velit. Sed saepe explicabo placeat vel dolorum eligendi laboriosam temporibus pariatur, neque commodi minus dicta aliquid iusto mollitia tenetur veniam obcaecati repellat cum dolore vitae dignissimos illum cumque rerum molestias. Fuga reprehenderit officia blanditiis temporibus iste totam quaerat accusamus asperiores numquam tenetur nulla magnam, ipsam dolor tempora dolorem quas aliquid ut veniam! Voluptatum consequatur voluptate officiis placeat nam quidem impedit cum. Accusamus excepturi incidunt iure iusto consequuntur ipsa esse vero doloribus qui? Optio inventore autem, odit repellendus eos hic incidunt recusandae dolore error rerum quia porro minus architecto, voluptas, nihil ad necessitatibus sint beatae repudiandae dolores fugiat iusto aspernatur amet. Neque architecto, maxime expedita ipsum temporibus, harum dolorum tempora nemo pariatur provident libero quos voluptatem itaque fuga! Error, quibusdam aliquid voluptatem alias eum, asperiores repudiandae perferendis beatae, maiores saepe minus voluptates itaque. Libero corrupti voluptas quo iure deserunt ratione deleniti suscipit sed veritatis aperiam, molestiae modi illo est sequi nobis dolore? Fugit, quibusdam est nobis rem magni deleniti sapiente numquam?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>        
+      </div>
+    </div>
+  </div>
+</div>
 </html>

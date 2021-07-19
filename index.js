@@ -2,46 +2,100 @@
 const dataBase = [
     {
         id: 1,
-        nombre: 'Mustang',
-        precio: 10000,
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/7/76/120px-Single.png'
+        nombre: 'Kit destornillad.',
+        precio: 1000,
+        imagen: 'img/destornilladores.jpg'
     },
     {
         id: 2,
-        nombre: 'ChevySS',
+        nombre: 'Tester de red',
         precio: 10000,
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/7/76/120px-Single.png'
+        imagen: 'img/testerred.jpg'
     },
     {
         id: 3,
-        nombre: 'Polara',
+        nombre: 'Alicate',
         precio: 10000,
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/7/76/120px-Single.png'
+        imagen: 'img/alicate.jpg'
     },
     {
         id: 4,
-        nombre: 'Taunus',
+        nombre: 'Pinza de punta',
         precio: 10000,
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/7/76/120px-Single.png'
+        imagen: 'img/pinzapunta.jpg'
     },
     {
         id: 5,
-        nombre: 'Cobra',
+        nombre: 'Crimpeadora',
         precio: 10000,
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/7/76/120px-Single.png'
+        imagen: 'img/crimpeadora.jpg'
     },
     {
         id: 6,
-        nombre: 'Charger',
+        nombre: 'Pelacables',
         precio: 10000,
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/7/76/120px-Single.png'
+        imagen: 'img/pelacables.jpg'
     },
     {
         id: 7,
-        nombre: 'Galloper',
+        nombre: 'Bolsa RJ45',
         precio: 10000,
-        imagen: 'https://upload.wikimedia.org/wikipedia/commons/7/76/120px-Single.png'
-    }
+        imagen: 'img/rj45.jpg'
+    },
+    {
+        id: 8,
+        nombre: 'Precintos',
+        precio: 10000,
+        imagen: 'img/precintos.jpg'
+    },
+    {
+        id: 9,
+        nombre: 'Cable cat5 (x10mt)',
+        precio: 10000,
+        imagen: 'img/cablered.jpg'
+    },
+    {
+        id: 10,
+        nombre: 'Pinza',
+        precio: 10000,
+        imagen: 'img/pinza.jpg'
+    },
+    {
+        id: 11,
+        nombre: 'Cutter',
+        precio: 10000,
+        imagen: 'img/cutter2.jpg'
+    },
+    {
+        id: 12,
+        nombre: 'Ponchadora',
+        precio: 10000,
+        imagen: 'img/ponchadora.jpg'
+    },
+    {
+        id: 13,
+        nombre: 'Tester',
+        precio: 10000,
+        imagen: 'img/tester.jpg'
+    },
+    {
+        id: 14,
+        nombre: 'Buscapolo',
+        precio: 10000,
+        imagen: 'img/buscapolo.jpg'
+    },
+    {
+        id: 15,
+        nombre: 'Grampas',
+        precio: 10000,
+        imagen: 'img/grampas.jpg'
+    },
+    {
+        id: 16,
+        nombre: '"Viru viru"',
+        precio: 10000,
+        imagen: 'img/viru.jpg'
+    },
 ];
 
 let carrito = [];
@@ -51,17 +105,77 @@ const DOMcarrito = document.querySelector('#carrito');
 const DOMtotal = document.querySelector('#total');
 const DOMflushButton = document.querySelector('#boton-vaciar');
 
-/* Functs */
+/* FUNCIONES */
+
+/* FILTRO CHECKBOX DE CATEGORÍAS */
+function change() {
+    var caTool = document.querySelectorAll(".filTools input[type='checkbox']");    
+    var filters = {
+      models: getClassOfCheckedCheckboxes(caTool),      
+    };
+  
+    filterResults(filters);
+  }
+function getClassOfCheckedCheckboxes(checkboxes) {
+    var classes = [];  
+    if (checkboxes && checkboxes.length > 0) {
+      for (var i = 0; i < checkboxes.length; i++) {
+        var cb = checkboxes[i];
+  
+        if (cb.checked) {
+          classes.push(cb.getAttribute("rel"));
+        }
+      }
+    }
+  
+    return classes;
+  }
+  
+  function filterResults(filters) {
+    var rElems = document.querySelectorAll(".result div");
+    var hiddenElems = [];
+  
+    if (!rElems || rElems.length <= 0) {
+      return;
+    }
+  
+    for (var i = 0; i < rElems.length; i++) {
+      var el = rElems[i];  
+      if (filters.caTool.length > 0) {
+        var isHidden = true;  
+        for (var j = 0; j < filters.models.length; j++) {
+          var filter = filters.models[j];  
+          if (el.classList.contains(filter)) {
+            isHidden = false;
+            break;
+          }
+        }  
+        if (isHidden) {
+          hiddenElems.push(el);
+        }
+      }      
+    }
+  
+    for (var i = 0; i < rElems.length; i++) {
+      rElems[i].style.display = "block";
+    }  
+    if (hiddenElems.length <= 0) {
+      return;
+    }  
+    for (var i = 0; i < hiddenElems.length; i++) {
+      hiddenElems[i].style.display = "none";
+    }
+  }
 
 /* Diseño prod en DB */
 function renderProducts() {
     dataBase.forEach((info) => {
         /* Estructura */
         const node = document.createElement('div');
-        node.classList.add('card', 'col-sm-4');
+        node.classList.add('card', 'col-sm-3', 'p-0', 'text-center');
         /* Body */
         const nodeCardBody = document.createElement('div');
-        nodeCardBody.classList.add('card-body');
+        nodeCardBody.classList.add('card-body', 'adjust', 'col');
         /* Titulo */
         const nodeTitle = document.createElement('h5');
         nodeTitle.classList.add('card-title');
@@ -76,8 +190,8 @@ function renderProducts() {
         nodePrice.textContent = info.precio + ' AR$';
         /* Button */
         const nodeBoton = document.createElement('button');
-        nodeBoton.classList.add('btn', 'btn-primary');
-        nodeBoton.textContent = 'Agregar al carrito';
+        nodeBoton.classList.add('btn', 'btn-primary');        
+        nodeBoton.textContent = '+';
         nodeBoton.setAttribute('marcador', info.id);
         nodeBoton.addEventListener('click', addItemToCart);
         /* Insert */
@@ -97,9 +211,8 @@ function addItemToCart(evento) {
     renderCart();
 }
 
-/* Dibuja todos los productos guardados en el carrito */
-function renderCart() {
-    /* Vaciar HTML */
+/* DIBUJA ITEMS EN EL CARRITO */
+function renderCart() {    
     DOMcarrito.textContent = '';
     /* Remover duplicados */
     const removeDuped = [...new Set(carrito)];
@@ -111,11 +224,11 @@ function renderCart() {
             return itemId === item ? total += 1 : total;
         }, 0);
         const node = document.createElement('li');
-        node.classList.add('list-group-item', 'text-right', 'mx-2');
+        node.classList.add('list-group-item', 'text-right', 'mx-1');
         node.textContent = `${numeroUnidadesItem} x ${targetItem[0].nombre} - ${targetItem[0].precio} AR$`;
         const selButton = document.createElement('button');
         selButton.classList.add('btn', 'btn-danger', 'mx-4');
-        selButton.textContent = 'Quitar';
+        selButton.textContent = 'X';
         selButton.style.marginLeft = '1rem';
         selButton.dataset.item = item;
         selButton.addEventListener('click', deleteItem);
@@ -168,56 +281,38 @@ function printDiv(divName) {
      document.body.innerHTML = originalContents;
 }
 
-/* AGREGA INPUT A LISTADO INICIAL */
-    /* function listElements() {
-        let list = document.getElementById("list");
-        data.forEach((item, index) => {
-            let li = document.createElement("li");
-            li.innerHTML = `
-            <p>${item.name}</p>
-            <input type="button" value="-" class="decrCant" onclick="decrCantNew(${index})">
-            <input type="number" min="1" max="999" value="1" class="val" disabled>
-            <input type="button" value="+" class="incrCant" onclick="incrCantNew(${index})">
-            <button type="submit" id="btnAdd" onclick="output(list)">Add to list</button>            
-        `;
-            list.appendChild(li);
-        });
-    } */
-    
-    /* INCREASE/DECREASE DE LOS ELEMENTOS */
-    /* listElements();
-    function incrCantNew(item) {
-        var inputsNumber = document.querySelectorAll("input[type=number]");
-        inputsNumber[item].value = inputsNumber[item].value * 1 + 1;
+/* ENVIAR LISTADO POR MAIL */
+function addMailIframe() {
+    $('<iframe src="mailto:email@testdomain.com?">')
+       .appendTo('#myIframe')
+       .css("display", "none");
+  }
+  function addMailIframeSrcdoc() {
+    //var body = "<a href='mailto:email@testdomain.com?'>Contact us</a>";
+    var body   = "";
+    var script = "<scr" + "ipt>" + "window.top.location = 'mailto:email@testdomain.com?';" + "</scr" + "ipt>";
+    $(`<iframe srcdoc="` + script + body + `">`)
+       .appendTo('#myIframeSrcdoc')
+       .css("display", "none")
+       ;
+  }
+
+/* FILTRAR ITEMS POR NOMBRE */
+function myFunction() {
+    /*  DECLARA LA VARIABLE */
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("XXXXXXXXXXXXXXXXXXX");
+    li = ul.getElementsByTagName('li');
+    /* ACÁ BUSCA EN TODA LA LISTA, OCULTA LOS QUE NO MATCHÉEN CRITERIO */    
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
     }
-    function decrCantNew(item) {
-        var inputsNumber = document.querySelectorAll("input[type=number]");
-        if (inputsNumber[item].value > 0) {
-            inputsNumber[item].value = inputsNumber[item].value - 1;
-        }
-    } */
-    
-    /* AGREGA INPUT A LISTADO DE CANT. ITEMS */
-    /* function listado(list) {
-        var text = "";
-        var inputs = document.querySelectorAll("input[type=text]");
-        for (var i = 0; i < inputs.length; i++) {
-            text += inputs[i].value;
-        }
-        var li = document.createElement("li"); */
-        /* var node = document.createTextNode(text); */
-        /* var inputsNumber = document.querySelectorAll("input[type=number]");
-        var newItem = inputsNumber.length;
-        li.innerHTML = `
-            <p>${text}</p>
-            <input type="button" value="-" class="decrCantNew" onclick="decrCantNew(${newItem})">
-            <input type="number" min="1" max="999" value="1" class="val" disabled>
-            <input type="button" value="+" class="incrCantNew" onclick="incrCantNew(${newItem})">
-            <button type="submit" id="btAdd" class="bt">Add to list</button>
-        `; */
-        /* li.appendChild(node); */
-        /* document.getElementById("list").appendChild(li);
-        data.push({ name: text });
-        alert("Se agregó elemento " + text);
-        }
-    } */
+  }

@@ -1,5 +1,5 @@
 body {
-  background: lightblue;
+  background: rgba(200, 0, 0, 0.2);
   position: relative;
   min-height: 100vh;
   padding-bottom: 60px;
@@ -7,8 +7,6 @@ body {
 
 body #newElement, body #filter, body #exitList {
   border: 1px;
-  border-color: black;
-  border-style: outset;
 }
 
 body #header {
@@ -16,7 +14,7 @@ body #header {
   height: 130px;
   position: -webkit-sticky;
   position: fixed;
-  background: black;
+  background: #a20606;
   top: 0;
   overflow: hidden;
   z-index: 3;
@@ -27,10 +25,21 @@ body #header #logo {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  background: blue;
+  background: black;
   border-radius: 10px;
-  border-style: none;
-  margin: 1% 1% 1% 1%;
+  border-style: outset;
+  border-color: black;
+  margin: 12px 0 0 15px;
+  background-image: "toolboxicon.png";
+}
+
+body #header #logo:hover {
+  -webkit-box-shadow: 2px 2px 10px 1px white;
+          box-shadow: 2px 2px 10px 1px white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 
 body #header #tit1 {
@@ -48,6 +57,23 @@ body #header #tit2 {
   right: 15%;
   top: 30%;
   text-align: right;
+}
+
+body #header .hoverCom .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+body #header .hoverCom .hoverCom:hover .tooltiptext {
+  visibility: visible;
 }
 
 body .container {
@@ -70,9 +96,12 @@ body .container #inputs {
 body .container #inputs #newElement {
   padding: 10px 0 15px 15px;
   border-radius: 15px;
-  -webkit-box-shadow: 7px 7px 8px black;
-          box-shadow: 7px 7px 8px black;
-  border: none;
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+  -webkit-box-shadow: 7px 7px 8px #a20606;
+          box-shadow: 7px 7px 8px #a20606;
+  background: #fff;
 }
 
 body .container #inputs #newElement #elemInput {
@@ -90,27 +119,42 @@ body .container #inputs #newElement #elemButton {
 body .container #inputs #filter {
   padding: 10px 0 15px 15px;
   border-radius: 15px;
-  -webkit-box-shadow: 7px 7px 8px black;
-          box-shadow: 7px 7px 8px black;
-  border: none;
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+  -webkit-box-shadow: 7px 7px 8px #a20606;
+          box-shadow: 7px 7px 8px #a20606;
+  background: #fff;
 }
 
 body .container #items {
+  background: black;
   border-radius: 15px;
-  -webkit-box-shadow: 7px 7px 8px black;
-          box-shadow: 7px 7px 8px black;
+  -webkit-box-shadow: 7px 7px 8px #a20606;
+          box-shadow: 7px 7px 8px #a20606;
   padding: 10px;
-  margin: 0 30px 0 30px;
+  margin: 0 25px 0 25px;
 }
 
 body .container #cartSide {
   border-radius: 15px;
-  -webkit-box-shadow: 7px 7px 8px black;
-          box-shadow: 7px 7px 8px black;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  -webkit-box-shadow: 7px 7px 8px #a20606;
+          box-shadow: 7px 7px 8px #a20606;
+  background: #fff;
   padding: 10;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+body .container #cartSide #carrito {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 350px;
+  max-width: 375px;
 }
 
 /*  
